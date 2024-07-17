@@ -1,8 +1,4 @@
-/**
- * PrintPurmutations
- */
-public class PrintPurmutations {
-
+public class PrintPurmutations {    //Time Complexity= O(n*n!)
     public static void main(String[] args) {
         StringBuilder str=new StringBuilder("abc");
         printAllPermutations(str,new StringBuilder(""),str.length());
@@ -12,7 +8,6 @@ public class PrintPurmutations {
             System.out.println(temp);
             return;
         }
-
         for(int i=0;i<s.length();i++){
             StringBuilder s2=new StringBuilder(s);
             StringBuilder temp2=new StringBuilder(temp);
@@ -20,7 +15,6 @@ public class PrintPurmutations {
             s2.deleteCharAt(i);
             printAllPermutations(s2, temp2,len);
         }
-
 
     }
 }
