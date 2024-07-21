@@ -20,7 +20,31 @@ public class SudokuSolver {
         }
     }
     public static boolean sudokuSolver(int[][] sudokuArray){
-        // if(r>=9){
+
+        for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+
+                if(sudokuArray[i][j]==-1){
+
+                    for(int k=1;k<=9;k++){
+
+                        if(check(sudokuArray, k, i, j)){
+                            sudokuArray[i][j]=k;
+
+                            if(sudokuSolver(sudokuArray))
+                                return true;
+                            else
+                                sudokuArray[i][j]=-1;
+                        }
+                    }
+                    return false;
+                }       
+            }
+        }
+        return true;  
+    }
+       
+    // if(r>=9){
         //     return true;
         // }
         // int nrn=r,ncn=col;
@@ -30,7 +54,6 @@ public class SudokuSolver {
         // }else{
         //     ncn++;
         // }
-        // for(int r=0;)
 
         // if(sudokuArray[r][col]==-1){
         //     for(int i=1;i<=9;i++){
@@ -50,26 +73,7 @@ public class SudokuSolver {
         //     return false;
         // }
 
-        for(int i=0;i<9;i++){
-            for(int j=0;j<9;j++){
-                if(sudokuArray[i][j]==-1){
-                    for(int k=1;k<=9;k++){
-                        if(check(sudokuArray, k, i, j)){
-                            sudokuArray[i][j]=k;
-                            if(sudokuSolver(sudokuArray))
-                                return true;
-                            else
-                                sudokuArray[i][j]=-1;
-                        }
-                    }
-                    return false;
-                }
-                
-            }
-        }
-        return true;
-        
-    }
+ 
 
 
     public static boolean check(int[][] sudokuArray, int n,int row, int col){
