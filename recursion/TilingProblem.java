@@ -2,7 +2,8 @@ public class TilingProblem {
     public static void main(String[] args) {
         System.out.println("No ow ways is "+ways2(5000));
     }
-    public static int ways(int n){
+    public static int ways(int n){ //O(n) --> TC is Almost like Optimised Power 2
+                                   //Even using fibonacci method gives O(n) TC
         if(n==1) return 1;
         if(n==2) return 2;
         if(n==3) return 3;
@@ -18,7 +19,7 @@ public class TilingProblem {
         tiling if they are attached. In case of horizontal tiling, each side will have one less time and 
         then again act recursively */
     }
-    public static int ways2(int n){ 
+    public static int ways2(int n){ //O(2^n)
         if (n == 1 || n==0)
             return n;
         return ways2(n - 1) + ways2(n - 2);
